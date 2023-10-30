@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 
+awodskadmsa
+
 int main() {
   ListaDeClientes lc;
 
