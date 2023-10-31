@@ -52,21 +52,27 @@ int listaTarefas(ListaDeTarefas *lt){
   for (int i = 0; i < lt->qtd; i++){
     Tarefa *t = &lt->tarefas[i];
     
-    printf("\n--- TAREFA NUMERO %d ---\n", i);
-    switch (t->categoria){
-      case (1):
-        printf("CATEGORIA: Trabalho\n");
-      case (2):
-        printf("CATEGORIA: Estudos\n");
-      case (3):
-        printf("CATEGORIA: Familia/Amigos\n");
-      case (4):
-        printf("CATEGORIA: Pessoal\n");
-      case (5):
-        printf("CATEGORIA: Outros\n");
-    }
+    printf("\n--- TAREFA %d ---\n", i);
+    if (t->categoria == 1){
+      printf("CATEGORIA: Trabalho\n");
+    } else if (t->categoria == 2){
+      printf("CATEGORIA: Estudos\n");
+    } else if (t->categoria == 3){
+      printf("CATEGORIA: Familia/Amigos\n");
+    } else if (t->categoria == 4){
+      printf("CATEGORIA: Pessoal\n");
+    } else if (t->categoria == 5){
+      printf("CATEGORIA: Outros\n");
+    } else {printf("Erro: categoria invalida.\n");}
     printf("PRIORIDADE: %d\n", t->prioridade);
     printf("DESCRICAO: %s\n", t->descricao);
+    if (t->estado == 0){
+      printf("ESTADO: Não iniciado\n");
+    } else if (t->estado == 1){
+      printf("ESTADO: Em andamento\n");
+    } else if (t->estado == 2){
+      printf("ESTADO: Concluído\n");
+    } else {printf("Erro: estado invalido.\n");}
     switch(t->estado){
       case (0):
         printf("ESTADO: Não iniciado\n");
@@ -75,9 +81,10 @@ int listaTarefas(ListaDeTarefas *lt){
       case (2):
         printf("ESTADO: Concluído\n");
     }
-  }
-};
+  } return 0;
+}
 int deletaTarefa(ListaDeTarefas *lt){
+  if (lt->qtd == 0){return 1;}
   int boolUsuario; // VARIÁVEL BOOLEANA QUE VAI DIZER SE O USUÁRIO JÁ SABE A POSIÇÃO DA TAREFA QUE ELE DESEJA DELETAR NA LISTA
   int posTarefa;
   printf("VOCE JA SABE EM QUE POSICAO ESTA A TAREFA QUE DESEJA DELETAR? (1 = SIM // 0 = NÃO)\n");
@@ -96,8 +103,28 @@ int deletaTarefa(ListaDeTarefas *lt){
     lt->tarefas[posTarefa].categoria = lt->tarefas[posTarefa + 1].categoria;
     lt->tarefas[posTarefa].estado = lt->tarefas[posTarefa + 1].estado;
     lt->tarefas[posTarefa].prioridade = lt->tarefas[posTarefa + 1].prioridade;
-  }
+  } return 0;
 }
-int alterarTarefa(ListaDeTarefas *lt);
-int filtrarTarefas(ListaDeTarefas *lt);
-int exportarTarefas(ListaDeTarefas *lt);
+int alterarTarefa(ListaDeTarefas *lt){
+  if (lt->qtd == 0){return 1;}
+  return 0;
+}
+int filtrarTarefas(ListaDeTarefas *lt){
+  if (lt->qtd == 0){return 1;}
+  return 0;
+};
+int exportarTarefas(ListaDeTarefas *lt){
+  if (lt->qtd == 0){return 1;}
+  return 0;
+};
+
+void exibeMenu(){
+  printf("\n--- ESCOLHA UMA OPCAO ---\n");
+  printf("1. Criar nova tarefa\n");
+  printf("2. Apagar uma tarefa\n");
+  printf("3. Listar tarefas\n");
+  printf("4. Atualizar tarefa\n");
+  printf("5. Buscar tarefas (Filtro)\n");
+  printf("6. Exportar tarefas\n");
+  printf("\n0. Sair\n");
+}
