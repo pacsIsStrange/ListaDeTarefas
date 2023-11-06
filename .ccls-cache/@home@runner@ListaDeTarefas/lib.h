@@ -21,4 +21,4 @@ int alterarTarefa(ListaDeTarefas *lt);
 int filtrarTarefas(ListaDeTarefas *lt);
 int exportarTarefas(ListaDeTarefas *lt);
 
-int exibeMenu();
+void exibeMenu();
