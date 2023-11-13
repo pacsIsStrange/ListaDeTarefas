@@ -18,7 +18,7 @@ int main() {
 
   do { // LOOP PARA EXIBIÇÃO CONTÍNUA DO MENU ATÉ QUE O USUÁRIO DECIDA SAIR
     exibeMenu();
-    scanf("%d", &opcao); // ARMAZENA A OPÇÃO ESCOLHIDA PELO USUÁRIO
+    scanf("%d", &opcao); 
     if(opcao == 0){
       
     } else if (opcao == 1){
@@ -35,11 +35,14 @@ int main() {
       if (codAux == 1){printf("Erro: nao existem tarefas para alterar.\n");}
     } else if (opcao == 5){
       codAux = filtrarTarefas(&lt);
+      if (codAux == 1){printf("Erro: nao existem tarefas para filtrar.\n");}
     } else if (opcao == 6){
       codAux = exportarTarefas(&lt);
+      if (codAux == 1){printf("Erro: nao existem tarefas para exportar.\n");}
+      else if (codAux == 2){printf("Erro: não foi possível gerar o arquivo 'exportacao.txt'.\n");}
     }
     
-  } while (opcao != 0);
+  } while (opcao != 0); // ESTABELECE A CONDIÇÃO PARA PARAR A EXIBIÇÃO DO MENU
 
   codAux = salvar(&lt, strArquivo);
   if (codAux != 0){
