@@ -75,16 +75,13 @@ int deletaTarefa(ListaDeTarefas *lt) {
   if (lt->qtd == 0) {
     return 1;
   }
-  int boolUsuario; // VARIÁVEL BOOLEANA QUE VAI DIZER SE O USUÁRIO JÁ SABE A
-                   // POSIÇÃO DA TAREFA QUE ELE DESEJA DELETAR NA LISTA
+  int boolUsuario; // VARIÁVEL BOOLEANA QUE VAI DIZER SE O USUÁRIO JÁ SABE A POSIÇÃO DA TAREFA QUE ELE DESEJA DELETAR NA LISTA
   int posTarefa;
-  printf("VOCE JA SABE EM QUE POSICAO ESTA A TAREFA QUE DESEJA DELETAR? (1 = "
-         "SIM // 0 = NÃO)\n");
+  printf("VOCE JA SABE EM QUE POSICAO ESTA A TAREFA QUE DESEJA DELETAR? (1 = SIM // 0 = NÃO)\n");
   scanf("%d", &boolUsuario);
   if (boolUsuario == 0) {
     listaTarefas(lt);
-    printf(
-        "\nA PARTIR DA LISTA, DIGITE O NUMERO DA TAREFA QUE DESEJA DELETAR:\n");
+    printf("\nA PARTIR DA LISTA, DIGITE O NUMERO DA TAREFA QUE DESEJA DELETAR:\n");
     scanf("%d", &posTarefa);
   } else if (boolUsuario == 1) {
     printf("DIGITE A POSICAO DA TAREFA QUE DESEJA DELETAR:\n");
