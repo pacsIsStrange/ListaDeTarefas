@@ -6,7 +6,7 @@ A proposta do projeto é implementar um programa que gerencia uma lista de taref
 
 O programa roda em loop até que o usuário deseje sair. As informações das tarefas são armazenadas em um arquivo com criptografia binária, de modo que seja possível acessar a lista mesmo depois que o usuário pare a execução do programa. O programa conta com as seguintes funcionalidades: criar tarefas, deletar tarefas, exibir tarefas, alterar tarefas, filtrar tarefas, exportação de tarefas (com filtros e saída em um arquivo .txt). Cada uma dessas funcionalidades corresponde a uma função no código-fonte.
 
-# English translation
+# English Version
 
 This project was carried out in the subject of Algorithm Development, in the Computer Science course at the FEI University Center, taught by Professor Leonardo Anjoletto Ferreira.
 
